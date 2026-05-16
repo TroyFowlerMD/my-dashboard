@@ -37,22 +37,43 @@
   --shadow: 0 2px 12px rgba(0,0,0,0.08);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;font-size:100%}
+html[data-font-size="small"]{font-size:87.5%}
+html[data-font-size="large"]{font-size:125%}
+html,body{width:100%;max-width:100%;overflow-x:hidden}
 body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100dvh;transition:background var(--tr),color var(--tr)}
 
 /* topbar */
-.topbar{position:sticky;top:0;z-index:100;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0.55rem 1.25rem}
-.topbar-title{font-weight:700;font-size:0.95rem;color:var(--text);display:flex;align-items:center;gap:0.45rem}
+.topbar{position:sticky;top:0;z-index:100;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0.55rem 1.25rem}
+.topbar-title{font-weight:700;font-size:0.95rem;color:var(--text);display:flex;align-items:center;gap:0.45rem;min-width:0}
 .topbar-title svg{width:20px;height:20px;color:var(--accent)}
+.topbar-nav{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:0.25rem;margin-left:auto}
+.topbar-nav a{color:var(--text-muted);text-decoration:none;font-size:0.74rem;font-weight:600;padding:0.35rem 0.55rem;border-radius:6px;white-space:nowrap}
+.topbar-nav a:hover{color:var(--text);background:var(--surface-2)}
+.topbar-actions{display:flex;align-items:center;gap:0.45rem}
+.font-controls{display:flex;align-items:center;gap:0.2rem;padding:0.15rem;border:1px solid var(--border);border-radius:8px;background:var(--surface-2)}
+.font-btn{min-width:32px;height:30px;display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:6px;background:transparent;color:var(--text-muted);font-weight:800;font-size:0.74rem;cursor:pointer;transition:all var(--tr)}
+.font-btn:hover,.font-btn.active{background:var(--surface-3);color:var(--text)}
 .theme-btn{width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:7px;cursor:pointer;color:var(--text-muted);background:var(--surface-2);border:1px solid var(--border);transition:all var(--tr)}
 .theme-btn:hover{color:var(--text);border-color:var(--border-hover)}
 
 /* layout */
 .container{max-width:1100px;margin:0 auto;padding:1.5rem 1.25rem 3rem}
 
+/* hero */
+.hero{margin:0 0 1.6rem;padding:0.35rem 0 0.3rem}
+.hero-label{font-size:0.68rem;font-weight:800;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent);margin-bottom:0.55rem}
+.hero h1{font-size:clamp(1.8rem,4vw,3.4rem);line-height:1.04;margin:0 0 0.7rem;color:var(--text);letter-spacing:0}
+.hero p{max-width:760px;font-size:0.98rem;line-height:1.62;color:var(--text-muted);margin:0}
+.hero-actions{display:flex;flex-wrap:wrap;gap:0.45rem;margin-top:1rem}
+.hero-actions a{display:inline-flex;align-items:center;gap:0.35rem;padding:0.48rem 0.75rem;border-radius:7px;border:1px solid var(--border);background:var(--surface);color:var(--text-muted);font-size:0.76rem;font-weight:600;text-decoration:none;transition:all var(--tr)}
+.hero-actions a:hover{color:var(--text);border-color:var(--border-hover);background:var(--surface-2)}
+
 /* section */
 .section{margin-bottom:1.75rem}
-.section-label{font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-faint);margin-bottom:0.6rem;padding-left:0.1rem}
+.section-label{font-size:0.86rem;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--text);margin-bottom:0.7rem;padding-left:0.1rem}
+[data-theme="dark"] .section-label{color:#c7cedc}
+[data-theme="light"] .section-label{color:#343948}
 
 /* dense grid */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.5rem}
@@ -65,7 +86,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
 .card-body{flex:1;min-width:0}
 .card-title{font-size:0.82rem;font-weight:600;line-height:1.3;margin-bottom:0.15rem}
 .card-desc{font-size:0.71rem;color:var(--text-muted);line-height:1.4}
-.card-url{font-size:0.63rem;color:var(--text-faint);margin-top:0.25rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.card-url{font-size:0.63rem;color:var(--text-faint);margin-top:0.25rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
 
 /* color accents */
 .card[data-c="teal"]   .card-icon{background:rgba(78,205,196,0.12);color:#4ECDC4}
@@ -95,10 +116,23 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
 .footer a:hover{color:var(--text-muted)}
 
 @media(max-width:600px){
-  .container{padding:1rem 0.75rem 2.5rem}
-  .grid{grid-template-columns:1fr 1fr}
-  .grid-wide{grid-template-columns:1fr}
-  .topbar{padding:0.45rem 0.85rem}
+  .container{width:100%;max-width:100vw;padding:1rem 2rem 2.5rem 0.75rem;overflow-x:hidden}
+  .grid{grid-template-columns:minmax(0,1fr)}
+  .grid-wide{grid-template-columns:minmax(0,1fr)}
+  .topbar{display:grid;grid-template-columns:auto auto;align-items:start;padding:0.45rem 0.75rem;gap:0.5rem}
+  .topbar-title{min-width:0}
+  .topbar-nav{grid-column:1 / -1;width:100%;justify-content:flex-start;overflow:visible;padding-top:0.2rem}
+  .topbar-actions{justify-self:end;min-width:0;margin-left:0;gap:0.3rem}
+  .font-controls{gap:0.1rem}
+  .font-btn{min-width:28px}
+  .hero h1{max-width:24ch;font-size:1.15rem;line-height:1.22;overflow-wrap:anywhere}
+  .hero p{max-width:34ch;overflow-wrap:anywhere}
+  .hero-actions{display:grid;grid-template-columns:1fr;gap:0.45rem}
+  .hero-actions a{justify-content:center;min-width:0}
+  .card{width:100%;max-width:calc(100vw - 2.75rem);min-width:0}
+  .card-desc{max-width:30ch;overflow-wrap:anywhere}
+  .card-title,.card-url{overflow-wrap:anywhere}
+  .card-url{white-space:normal}
 }
 @media(max-width:380px){.grid{grid-template-columns:1fr}}
 </style>
@@ -110,15 +144,40 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
     TroyMD Hub
   </div>
-  <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
-    <svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
-  </button>
+  <nav class="topbar-nav" aria-label="Portfolio sections">
+    <a href="#training">Training</a>
+    <a href="#clinical">Clinical</a>
+    <a href="#patient">Patient</a>
+    <a href="#journal">Journal</a>
+    <a href="#non-clinical">Non-clinical</a>
+  </nav>
+  <div class="topbar-actions">
+    <div class="font-controls" aria-label="Text size">
+      <button class="font-btn" type="button" data-font-btn="small" onclick="setFontSize('small')" aria-label="Decrease text size">A-</button>
+      <button class="font-btn" type="button" data-font-btn="normal" onclick="setFontSize('normal')" aria-label="Reset text size">A</button>
+      <button class="font-btn" type="button" data-font-btn="large" onclick="setFontSize('large')" aria-label="Increase text size">A+</button>
+    </div>
+    <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+      <svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
+    </button>
+  </div>
 </div>
 
 <div class="container">
+  <section class="hero" aria-labelledby="hub-title">
+    <div class="hero-label">TroyFowlerMD public portfolio</div>
+    <h1 id="hub-title">Clinical tools, teaching hubs, and project entry points.</h1>
+    <p>Use this page as the main public doorway into the maintained TroyMD sites. Clinical, education, patient-facing, journal club, and non-clinical tools are grouped by audience so the right resource is easier to find.</p>
+    <div class="hero-actions" aria-label="Featured destinations">
+      <a href="https://troyfowlermd.github.io/sud-education-hub/" target="_blank" rel="noopener">SUD Education</a>
+      <a href="https://troyfowlermd.github.io/clinical-dashboards/" target="_blank" rel="noopener">Clinical Dashboards</a>
+      <a href="https://troyfowlermd.github.io/psychometrics-hub/" target="_blank" rel="noopener">Psychometrics</a>
+      <a href="https://troyfowlermd.github.io/IVC-Suite/" target="_blank" rel="noopener">IVC Suite</a>
+    </div>
+  </section>
 
   <!-- SUD Training -->
-  <div class="section">
+  <div class="section" id="training">
     <div class="section-label">SUD Training</div>
     <div class="grid-wide">
       <a class="card" data-c="teal" href="https://troyfowlermd.github.io/sud-education-hub/" target="_blank" rel="noopener">
@@ -141,7 +200,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
   </div>
 
   <!-- Patient Education -->
-  <div class="section">
+  <div class="section" id="patient">
     <div class="section-label">Patient Education</div>
     <div class="grid-wide">
       <a class="card" data-c="green" href="https://troyfowlermd.github.io/sud-patient-education/" target="_blank" rel="noopener">
@@ -156,7 +215,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
   </div>
 
   <!-- Journal Club -->
-  <div class="section">
+  <div class="section" id="journal">
     <div class="section-label">Journal Club</div>
     <div class="grid-wide">
       <a class="card" data-c="coral" href="https://troyfowlermd.github.io/journal-club-hub/" target="_blank" rel="noopener">
@@ -194,7 +253,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
   </div>
 
   <!-- Clinical Tools -->
-  <div class="section">
+  <div class="section" id="clinical">
     <div class="section-label">Clinical Tools</div>
     <div class="grid">
       <a class="card" data-c="blue" href="https://troyfowlermd.github.io/clinical-dashboards/jfk/" target="_blank" rel="noopener">
@@ -277,10 +336,10 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
   </div>
 
   <!-- Non-clinical -->
-  <div class="section">
+  <div class="section" id="non-clinical">
     <div class="section-label">Non-clinical</div>
     <div class="grid">
-      <a class="card" data-c="blue" href="https://troyfowlermd.github.io/non-clinical/psych-scheduler.html">
+      <a class="card" data-c="blue" href="https://troyfowlermd.github.io/non-clinical/psych-scheduler.html" target="_blank" rel="noopener">
         <div class="card-icon">📅</div>
         <div class="card-body">
           <div class="card-title">Psych Scheduler</div>
@@ -288,7 +347,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
           <div class="card-url">troyfowlermd.github.io/non-clinical/psych-scheduler.html</div>
         </div>
       </a>
-      <a class="card" data-c="amber" href="https://troyfowlermd.github.io/non-clinical/five-crowns.html">
+      <a class="card" data-c="amber" href="https://troyfowlermd.github.io/non-clinical/five-crowns.html" target="_blank" rel="noopener">
         <div class="card-icon">♛</div>
         <div class="card-body">
           <div class="card-title">Five Crowns Scorekeeper</div>
@@ -296,7 +355,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
           <div class="card-url">troyfowlermd.github.io/non-clinical/five-crowns.html</div>
         </div>
       </a>
-      <a class="card" data-c="teal" href="https://troyfowlermd.github.io/non-clinical/NC-SC-Coast-Vacation-Planner.html">
+      <a class="card" data-c="teal" href="https://troyfowlermd.github.io/non-clinical/NC-SC-Coast-Vacation-Planner.html" target="_blank" rel="noopener">
         <div class="card-icon">🏖️</div>
         <div class="card-body">
           <div class="card-title">NC/SC Coast Vacation Planner</div>
@@ -314,6 +373,22 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
 </div>
 
 <script>
+const fontSizeKey='troymd-font-size';
+
+function setFontSize(size){
+  const allowed=['small','normal','large'];
+  const next=allowed.includes(size)?size:'normal';
+  const h=document.documentElement;
+  if(next==='normal') h.removeAttribute('data-font-size');
+  else h.setAttribute('data-font-size',next);
+  localStorage.setItem(fontSizeKey,next);
+  document.querySelectorAll('[data-font-btn]').forEach(btn=>{
+    const active=btn.getAttribute('data-font-btn')===next;
+    btn.classList.toggle('active',active);
+    btn.setAttribute('aria-pressed',active?'true':'false');
+  });
+}
+
 function toggleTheme(){
   const h=document.documentElement;
   const next=h.getAttribute('data-theme')==='dark'?'light':'dark';
@@ -322,6 +397,8 @@ function toggleTheme(){
     ?'<path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>'
     :'<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
 }
+
+setFontSize(localStorage.getItem(fontSizeKey)||'normal');
 </script>
 </body>
 </html>
