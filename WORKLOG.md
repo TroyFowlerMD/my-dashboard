@@ -4,6 +4,12 @@ This file records completed Codex work sessions for TroyMD Personal Dashboard. A
 
 ---
 
+### 2026-05-19 - Codex desktop - Power of Attorney guide routing card
+- Completed: Added a Non-clinical dashboard card linking to the new Power of Attorney guide at `https://troyfowlermd.github.io/non-clinical/personal/poa-guide.html`.
+- Completed: Preserved destination-link behavior with `target="_blank"` and `rel="noopener"`.
+- In progress: Existing public-dashboard routing and future manual link retest tasks remain open.
+- Blockers/notes: Publish verification should confirm the dashboard and new guide URLs after both repos are pushed.
+
 ## Entry Format
 
     ### YYYY-MM-DD - [machine/profile] - [session summary]

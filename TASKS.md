@@ -16,6 +16,7 @@
 - [ ] Discuss where cross-portfolio operating docs should live: this repo, a separate operations repo, or excluded.
 
 ## Completed (last 30 days)
+- [x] Added a Non-clinical dashboard card for the Power of Attorney guide.
 - [x] Repointed dashboard links toward merged destination repos where applicable.
 - [x] Cleaned non-clinical cards to point to Psych Scheduler, Five Crowns, and the vacation planner.
 - [x] Removed Perplexity branding/footer references.
