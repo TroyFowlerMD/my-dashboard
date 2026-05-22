@@ -27,3 +27,9 @@ Context: Dashboard routing had legacy split cards and stale destinations.
 Decision: Prefer simplified public routing cards, including one general Patient Education card and one Psychometrics Hub card.
 Rationale: The dashboard should help users choose working destinations quickly rather than exposing consolidation history.
 Consequences: Avoid reintroducing old repo-path cards or public migration language.
+
+### 2026-05-22 - Explain Repo Work With Beginner Context
+Context: Dr. Fowler is new to Git, GitHub, GitHub Desktop, Codex, and local-vs-remote repository workflows.
+Decision: Codex should explain repo work with extra beginner-friendly context by default, including definitions, why each step matters, exact local paths/button names when useful, and a clear distinction between local files, local commits, pushed GitHub commits, pull requests, and deployed site changes.
+Rationale: Better context reduces accidental duplicate clones, OneDrive/Git confusion, and uncertainty about whether work is local, synced, or live.
+Consequences: Future repo instructions and shutdown summaries should favor plain outcome language and step-by-step guidance over unexplained Git shorthand.

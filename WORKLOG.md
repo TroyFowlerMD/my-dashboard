@@ -24,3 +24,9 @@ This file records completed Codex work sessions for TroyMD Personal Dashboard. A
 - In progress: Existing public-dashboard retest, card-organization review, profile pinning/About polish, and cross-portfolio docs placement tasks remain open in TASKS.md.
 - Blockers/notes: No app code changed; TASKS.md and DECISIONS.md were not changed.
 
+### 2026-05-22 - Codex desktop - Beginner-friendly repo communication preference
+- Completed: Added `AGENTS.md` Owner Communication guidance so future Codex sessions explain Git, GitHub, GitHub Desktop, Codex workspace behavior, local-vs-remote state, commits, pushes, pulls, branches, and deployments with extra beginner-friendly context.
+- Completed: Documented that explanations should define concepts, distinguish local files from pushed/deployed changes, and use exact paths/button names when Dr. Fowler is operating tools manually.
+- In progress: Existing dashboard tasks remain unchanged.
+- Blockers/notes: Instruction-only change; no app runtime code changed.
+
