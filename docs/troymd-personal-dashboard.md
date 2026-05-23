@@ -11,7 +11,7 @@ Local review confirmed that this page is the real active dashboard repo, while `
 
 A portfolio-consolidation polish pass has now been committed and pushed:
 - important dashboard links were repointed toward the new merged destination repos where applicable
-- non-clinical cards were cleaned up to point to the real Psych Scheduler, Five Crowns, and vacation-planner pages
+- non-clinical cards were cleaned up to point to the real Psych Scheduler, experimental Psych Scheduler Command Center, Five Crowns, and vacation-planner pages
 - Perplexity branding/footer references were removed
 - the Phenobarbital for AWS card now points to `sud-education-hub/alcohol-benzodiazepines/phenobarbital-aws.html`
 
@@ -58,3 +58,7 @@ An authenticated GitHub API probe showed the current plan does not support GitHu
 - Dashboard destination links should open in a new tab by default with `target="_blank"` and `rel="noopener"` unless a future change explicitly calls for same-tab behavior. In-page section jumps can remain same-tab.
 - Local dashboard updates improved phone layout by keeping cards in a vertical single-column flow, removing horizontal navigation overflow, adding `A-` / `A` / `A+` text-size controls, and making section labels more visible in dark mode.
 - A repo README now documents the default new-tab link policy for future dashboard additions.
+
+## 2026-05-23 Experimental Scheduler Link
+- Added a Non-clinical dashboard card for the experimental Psych Scheduler Command Center at `https://troyfowlermd.github.io/non-clinical/psych-scheduler-experimental.html`.
+- The card preserves destination-link behavior with `target="_blank"` and `rel="noopener"`.

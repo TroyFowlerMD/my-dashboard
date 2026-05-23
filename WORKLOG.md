@@ -4,6 +4,12 @@ This file records completed Codex work sessions for TroyMD Personal Dashboard. A
 
 ---
 
+### 2026-05-23 - Codex desktop - Experimental Psych Scheduler hub card
+- Completed: Added a Non-clinical dashboard card linking to the experimental Psych Scheduler Command Center at `https://troyfowlermd.github.io/non-clinical/psych-scheduler-experimental.html`.
+- Completed: Preserved destination-link behavior with `target="_blank"` and `rel="noopener"`.
+- In progress: Existing public-dashboard routing and future manual link retest tasks remain open.
+- Blockers/notes: Pre-edit `git pull --ff-only` was skipped because escalation was not approved; local branch was clean and reported `master...origin/master` before editing.
+
 ### 2026-05-19 - Codex desktop - Power of Attorney guide routing card
 - Completed: Added a Non-clinical dashboard card linking to the new Power of Attorney guide at `https://troyfowlermd.github.io/non-clinical/personal/poa-guide.html`.
 - Completed: Preserved destination-link behavior with `target="_blank"` and `rel="noopener"`.
