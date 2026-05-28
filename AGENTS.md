@@ -91,3 +91,42 @@ Append entries to WORKLOG.md using this shape:
 - For link changes, verify target URLs and whether they should open in a new tab.
 - For visible UI changes, inspect desktop and mobile layouts when feasible.
 - If tests cannot run, record the reason in WORKLOG.md.
+
+## Standing Agent Policy Bootstrap (Deduplicated)
+
+> Single source of truth for standing AI-agent behavior in this repo. For project overview and link policy context, see README.md.
+
+### Hard rules
+- Never merge to the default branch without a green CI run on the working branch.
+- Keep diffs minimal. No version bumps, no dependency upgrades, and no refactors outside the task scope unless explicitly requested.
+- Use Conventional Commits (`feat:`, `fix:`, `chore:`, `docs:`, `refactor:`, `test:`, `ci:`).
+- Match existing code style in touched files.
+- If introducing Kotlin to a Java module, ensure `kotlinOptions { jvmTarget }` matches the existing Java `compileOptions` target.
+- If a task requires touching a file listed under "Protected files," stop and ask for explicit confirmation before editing it.
+
+### Protected files (do not modify unless explicitly requested)
+- `index.html` (public routing entrypoint)
+- `README.md` (public routing policy summary)
+- `templates/codex/*.md` (shared cross-repo prompt templates)
+
+### CI workflows
+No CI workflows configured yet.
+
+### Branch and PR conventions
+- Base branch: `master`.
+- Branch name prefix: `codex/`.
+- Open as DRAFT PR until CI is green on the branch (or until reviewer sign-off when no CI exists).
+- PR description must link to the relevant CI run when CI is present.
+- One logical change per PR.
+- PR structure: see `.github/PULL_REQUEST_TEMPLATE.md`.
+
+### Toolchain
+- Static HTML site repo; no explicit toolchain pins are currently defined in repository configs or workflows.
+
+### Definition of done
+A task is done only when all apply:
+- [ ] CI workflow(s) pass green on the working branch (or CI is not configured)
+- [ ] Diff touches only files required by the task
+- [ ] No changes to protected files (or explicit confirmation was given)
+- [ ] Commits follow Conventional Commits
+- [ ] PR description summarizes what changed and links the CI run when applicable
