@@ -13,3 +13,13 @@ Rules for this session:
 3. If a file is too large to output in one block, say so immediately and ask me which section to prioritize.
 4. Do not import external libraries unless I approve them first.
 5. Confirm your understanding of these rules before we begin.
+
+---
+
+## Related Templates (Codex Prompt Library)
+Location: `TroyFowlerMD/my-dashboard/templates/codex/`
+- [codex-session-openers.md](./codex-session-openers.md) — this file
+- [android-widget-prompt.md](./android-widget-prompt.md) — Capacitor + SharedPreferences Android Home Screen widget brief (scoped to `non-clinical`)
+- [cache-refinement-prompt.md](./cache-refinement-prompt.md) — service-worker / cache tuning for static GitHub Pages
+
+Used by repos: `non-clinical` (see its AGENTS.md for cross-link back).
