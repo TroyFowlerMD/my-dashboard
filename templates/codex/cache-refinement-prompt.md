@@ -9,3 +9,13 @@ You are a performance optimization expert. Review the following caching implemen
 2. Optimize the `Cache-Control` headers for assets.
 3. Provide a fallback mechanism for when the user is offline, ensuring the core app remains functional.
 4. Output a refined `service-worker.js` script that prioritizes the 'stale-while-revalidate' strategy for the site assets.
+
+---
+
+## Related Templates (Codex Prompt Library)
+Location: `TroyFowlerMD/my-dashboard/templates/codex/`
+- [cache-refinement-prompt.md](./cache-refinement-prompt.md) — this file
+- [codex-session-openers.md](./codex-session-openers.md) — paste at the start of every Codex session
+- [android-widget-prompt.md](./android-widget-prompt.md) — Capacitor + SharedPreferences Android Home Screen widget brief (scoped to `non-clinical`)
+
+Used by repos: `non-clinical` (see its AGENTS.md for cross-link back).
