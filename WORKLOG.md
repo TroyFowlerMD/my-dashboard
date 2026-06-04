@@ -4,6 +4,13 @@ This file records completed Codex work sessions for TroyMD Personal Dashboard. A
 
 ---
 
+### 2026-06-04 - Codex desktop - Schedule-first dashboard organization
+- Completed: Fast-forward pulled `origin/master`, then made `Schedules` the first dashboard section with `JFK Psych Schedule`, `JFK Med Staff Schedule`, and `Psych Scheduler Command Center` cards.
+- Completed: Removed the large hero block and top-bar section navigation so the page top keeps only `TroyMD Hub`, text-size controls, and the appearance toggle.
+- Completed: Removed duplicate schedule cards from `Non-clinical`, leaving the remaining utility cards there.
+- In progress: Future manual dashboard-link retests remain open after later routing changes.
+- Blockers/notes: No blocker; public page verification should be completed after push and GitHub Pages refresh.
+
 ### 2026-05-23 - Codex desktop - Experimental Psych Scheduler hub card
 - Completed: Added a Non-clinical dashboard card linking to the experimental Psych Scheduler Command Center at `https://troyfowlermd.github.io/non-clinical/psych-scheduler-experimental.html`.
 - Completed: Preserved destination-link behavior with `target="_blank"` and `rel="noopener"`.

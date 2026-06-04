@@ -47,9 +47,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
 .topbar{position:sticky;top:0;z-index:100;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0.55rem 1.25rem}
 .topbar-title{font-weight:700;font-size:0.95rem;color:var(--text);display:flex;align-items:center;gap:0.45rem;min-width:0}
 .topbar-title svg{width:20px;height:20px;color:var(--accent)}
-.topbar-nav{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:0.25rem;margin-left:auto}
-.topbar-nav a{color:var(--text-muted);text-decoration:none;font-size:0.74rem;font-weight:600;padding:0.35rem 0.55rem;border-radius:6px;white-space:nowrap}
-.topbar-nav a:hover{color:var(--text);background:var(--surface-2)}
 .topbar-actions{display:flex;align-items:center;gap:0.45rem}
 .font-controls{display:flex;align-items:center;gap:0.2rem;padding:0.15rem;border:1px solid var(--border);border-radius:8px;background:var(--surface-2)}
 .font-btn{min-width:32px;height:30px;display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:6px;background:transparent;color:var(--text-muted);font-weight:800;font-size:0.74rem;cursor:pointer;transition:all var(--tr)}
@@ -59,15 +56,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
 
 /* layout */
 .container{max-width:1100px;margin:0 auto;padding:1.5rem 1.25rem 3rem}
-
-/* hero */
-.hero{margin:0 0 1.6rem;padding:0.35rem 0 0.3rem}
-.hero-label{font-size:0.68rem;font-weight:800;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent);margin-bottom:0.55rem}
-.hero h1{font-size:clamp(1.8rem,4vw,3.4rem);line-height:1.04;margin:0 0 0.7rem;color:var(--text);letter-spacing:0}
-.hero p{max-width:760px;font-size:0.98rem;line-height:1.62;color:var(--text-muted);margin:0}
-.hero-actions{display:flex;flex-wrap:wrap;gap:0.45rem;margin-top:1rem}
-.hero-actions a{display:inline-flex;align-items:center;gap:0.35rem;padding:0.48rem 0.75rem;border-radius:7px;border:1px solid var(--border);background:var(--surface);color:var(--text-muted);font-size:0.76rem;font-weight:600;text-decoration:none;transition:all var(--tr)}
-.hero-actions a:hover{color:var(--text);border-color:var(--border-hover);background:var(--surface-2)}
 
 /* section */
 .section{margin-bottom:1.75rem}
@@ -121,14 +109,9 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
   .grid-wide{grid-template-columns:minmax(0,1fr)}
   .topbar{display:grid;grid-template-columns:auto auto;align-items:start;padding:0.45rem 0.75rem;gap:0.5rem}
   .topbar-title{min-width:0}
-  .topbar-nav{grid-column:1 / -1;width:100%;justify-content:flex-start;overflow:visible;padding-top:0.2rem}
   .topbar-actions{justify-self:end;min-width:0;margin-left:0;gap:0.3rem}
   .font-controls{gap:0.1rem}
   .font-btn{min-width:28px}
-  .hero h1{max-width:24ch;font-size:1.15rem;line-height:1.22;overflow-wrap:anywhere}
-  .hero p{max-width:34ch;overflow-wrap:anywhere}
-  .hero-actions{display:grid;grid-template-columns:1fr;gap:0.45rem}
-  .hero-actions a{justify-content:center;min-width:0}
   .card{width:100%;max-width:calc(100vw - 2.75rem);min-width:0}
   .card-desc{max-width:30ch;overflow-wrap:anywhere}
   .card-title,.card-url{overflow-wrap:anywhere}
@@ -144,13 +127,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
     TroyMD Hub
   </div>
-  <nav class="topbar-nav" aria-label="Portfolio sections">
-    <a href="#training">Training</a>
-    <a href="#clinical">Clinical</a>
-    <a href="#patient">Patient</a>
-    <a href="#journal">Journal</a>
-    <a href="#non-clinical">Non-clinical</a>
-  </nav>
   <div class="topbar-actions">
     <div class="font-controls" aria-label="Text size">
       <button class="font-btn" type="button" data-font-btn="small" onclick="setFontSize('small')" aria-label="Decrease text size">A-</button>
@@ -164,17 +140,36 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
 </div>
 
 <div class="container">
-  <section class="hero" aria-labelledby="hub-title">
-    <div class="hero-label">TroyFowlerMD public portfolio</div>
-    <h1 id="hub-title">Clinical tools, teaching hubs, and project entry points.</h1>
-    <p>Use this page as the main public doorway into the maintained TroyMD sites. Clinical, education, patient-facing, journal club, and non-clinical tools are grouped by audience so the right resource is easier to find.</p>
-    <div class="hero-actions" aria-label="Featured destinations">
-      <a href="https://troyfowlermd.github.io/sud-education-hub/" target="_blank" rel="noopener">SUD Education</a>
-      <a href="https://troyfowlermd.github.io/clinical-dashboards/" target="_blank" rel="noopener">Clinical Dashboards</a>
-      <a href="https://troyfowlermd.github.io/psychometrics-hub/" target="_blank" rel="noopener">Psychometrics</a>
-      <a href="https://troyfowlermd.github.io/IVC-Suite/" target="_blank" rel="noopener">IVC Suite</a>
+  <!-- Schedules -->
+  <div class="section" id="schedule">
+    <div class="section-label">Schedules</div>
+    <div class="grid">
+      <a class="card" data-c="blue" href="https://troyfowlermd.github.io/non-clinical/psych-scheduler.html" target="_blank" rel="noopener">
+        <div class="card-icon">PSY</div>
+        <div class="card-body">
+          <div class="card-title">JFK Psych Schedule</div>
+          <div class="card-desc">Inpatient psychiatry schedule analyzer - paste-to-parse, backup call tracking, PTO risk, calendar export</div>
+          <div class="card-url">troyfowlermd.github.io/non-clinical/psych-scheduler.html</div>
+        </div>
+      </a>
+      <a class="card" data-c="green" href="https://troyfowlermd.github.io/non-clinical/jfk-med-staff-schedule-experimental-v2.html" target="_blank" rel="noopener">
+        <div class="card-icon">MED</div>
+        <div class="card-body">
+          <div class="card-title">JFK Med Staff Schedule</div>
+          <div class="card-desc">Daily and monthly JFK med staff schedule with directory, texting, and upload tools</div>
+          <div class="card-url">troyfowlermd.github.io/non-clinical/jfk-med-staff-schedule-experimental-v2.html</div>
+        </div>
+      </a>
+      <a class="card" data-c="coral" href="https://troyfowlermd.github.io/non-clinical/psych-scheduler-experimental.html" target="_blank" rel="noopener">
+        <div class="card-icon">EXP</div>
+        <div class="card-body">
+          <div class="card-title">Psych Scheduler Command Center</div>
+          <div class="card-desc">Experimental staffing analytics clone - mode-specific views, risk cards, and staffing timeline</div>
+          <div class="card-url">troyfowlermd.github.io/non-clinical/psych-scheduler-experimental.html</div>
+        </div>
+      </a>
     </div>
-  </section>
+  </div>
 
   <!-- SUD Training -->
   <div class="section" id="training">
@@ -339,22 +334,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
   <div class="section" id="non-clinical">
     <div class="section-label">Non-clinical</div>
     <div class="grid">
-      <a class="card" data-c="blue" href="https://troyfowlermd.github.io/non-clinical/psych-scheduler.html" target="_blank" rel="noopener">
-        <div class="card-icon">📅</div>
-        <div class="card-body">
-          <div class="card-title">Psych Scheduler</div>
-          <div class="card-desc">Inpatient psychiatry schedule analyzer — paste-to-parse, backup call tracking, PTO risk, calendar export</div>
-          <div class="card-url">troyfowlermd.github.io/non-clinical/psych-scheduler.html</div>
-        </div>
-      </a>
-      <a class="card" data-c="coral" href="https://troyfowlermd.github.io/non-clinical/psych-scheduler-experimental.html" target="_blank" rel="noopener">
-        <div class="card-icon">EXP</div>
-        <div class="card-body">
-          <div class="card-title">Psych Scheduler Command Center</div>
-          <div class="card-desc">Experimental staffing analytics clone - mode-specific views, risk cards, and staffing timeline</div>
-          <div class="card-url">troyfowlermd.github.io/non-clinical/psych-scheduler-experimental.html</div>
-        </div>
-      </a>
       <a class="card" data-c="amber" href="https://troyfowlermd.github.io/non-clinical/five-crowns.html" target="_blank" rel="noopener">
         <div class="card-icon">♛</div>
         <div class="card-body">

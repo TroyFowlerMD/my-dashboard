@@ -11,7 +11,8 @@ Local review confirmed that this page is the real active dashboard repo, while `
 
 A portfolio-consolidation polish pass has now been committed and pushed:
 - important dashboard links were repointed toward the new merged destination repos where applicable
-- non-clinical cards were cleaned up to point to the real Psych Scheduler, experimental Psych Scheduler Command Center, Five Crowns, and vacation-planner pages
+- frequent schedule apps now appear first in a dedicated Schedules section
+- non-clinical cards were cleaned up to keep general utility links separate from the schedule apps
 - Perplexity branding/footer references were removed
 - the Phenobarbital for AWS card now points to `sud-education-hub/alcohol-benzodiazepines/phenobarbital-aws.html`
 
@@ -40,7 +41,6 @@ Destination targets now wired into the pushed dashboard include:
 
 ## Next Steps
 - manually retest the public dashboard links now that the consolidated repos are public and GitHub Pages is enabled
-- verify the user-facing card organization still feels right now that the formerly broken links resolve
 - decide whether any profile pinning or additional About-panel polish is needed
 - keep using this page as the public-facing routing layer for the consolidated portfolio
 
@@ -62,3 +62,8 @@ An authenticated GitHub API probe showed the current plan does not support GitHu
 ## 2026-05-23 Experimental Scheduler Link
 - Added a Non-clinical dashboard card for the experimental Psych Scheduler Command Center at `https://troyfowlermd.github.io/non-clinical/psych-scheduler-experimental.html`.
 - The card preserves destination-link behavior with `target="_blank"` and `rel="noopener"`.
+
+## 2026-06-04 Schedule-First Dashboard Update
+- Added a first `Schedules` section with `JFK Psych Schedule`, `JFK Med Staff Schedule`, and `Psych Scheduler Command Center`.
+- Removed the large hero copy, hero destination buttons, and top-bar section navigation to reduce the height of the dashboard header.
+- Removed duplicate schedule cards from the `Non-clinical` section while keeping general non-clinical utilities there.

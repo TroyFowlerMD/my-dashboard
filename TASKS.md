@@ -11,11 +11,12 @@
 
 ## Upcoming
 - [ ] Manually retest public dashboard links after each future repo-routing change.
-- [ ] Verify the user-facing card organization still feels right now that consolidated links resolve.
 - [ ] Decide whether GitHub profile pinning or additional About-panel polish is needed.
 - [ ] Discuss where cross-portfolio operating docs should live: this repo, a separate operations repo, or excluded.
 
 ## Completed (last 30 days)
+- [x] Moved frequent schedule apps into a first-page `Schedules` section and simplified the dashboard top bar.
+- [x] Verified the user-facing card organization after separating schedules from non-clinical utilities.
 - [x] Added a Non-clinical dashboard card for the experimental Psych Scheduler Command Center.
 - [x] Added a Non-clinical dashboard card for the Power of Attorney guide.
 - [x] Repointed dashboard links toward merged destination repos where applicable.

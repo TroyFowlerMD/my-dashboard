@@ -39,3 +39,9 @@ Context: Dr. Fowler wants Codex to notice chances to make his coding, GitHub, Gi
 Decision: When Codex sees a practical workflow improvement, it should present the opportunity proactively with the expected benefit, any risk or cost, and the smallest safe next step.
 Rationale: Small workflow improvements compound, especially while Dr. Fowler is learning Git and using Codex across multiple machines.
 Consequences: Future sessions should separate optional workflow suggestions from required task work so recommendations help without derailing the current task.
+
+### 2026-06-04 - Treat Schedule Apps As A Top Dashboard Category
+Context: Dr. Fowler uses the schedule apps frequently and wanted them visible before the rest of the portfolio routing cards.
+Decision: Keep a first-page `Schedules` section for `JFK Psych Schedule`, `JFK Med Staff Schedule`, and the experimental `Psych Scheduler Command Center`.
+Rationale: The main hub should prioritize the highest-frequency workflow before broader clinical, education, journal, and utility destinations.
+Consequences: Future schedule-related destination cards should be reviewed for placement in `Schedules` before adding them to `Non-clinical`.
