@@ -4,6 +4,12 @@ This file records completed Codex work sessions for TroyMD Personal Dashboard. A
 
 ---
 
+### 2026-06-04 - Codex desktop - Hub link simplification
+- Completed: Fast-forward pulled `origin/master`, then removed the direct `IVC Suite` card from `Clinical Tools` because IVC can still be reached through the `JFK Clinical Dashboard`.
+- Completed: Removed the `Dev & Templates` and `Quick Access` sections from the public hub page, including the now-unused quick-link CSS.
+- In progress: Future manual dashboard-link retests remain open after later routing changes.
+- Blockers/notes: No blocker; public page verification should be completed after push and GitHub Pages refresh.
+
 ### 2026-06-04 - Codex desktop - Schedule-first dashboard organization
 - Completed: Fast-forward pulled `origin/master`, then made `Schedules` the first dashboard section with `JFK Psych Schedule`, `JFK Med Staff Schedule`, and `Psych Scheduler Command Center` cards.
 - Completed: Removed the large hero block and top-bar section navigation so the page top keeps only `TroyMD Hub`, text-size controls, and the appearance toggle.

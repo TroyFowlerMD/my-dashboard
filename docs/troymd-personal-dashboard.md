@@ -13,6 +13,7 @@ A portfolio-consolidation polish pass has now been committed and pushed:
 - important dashboard links were repointed toward the new merged destination repos where applicable
 - frequent schedule apps now appear first in a dedicated Schedules section
 - non-clinical cards were cleaned up to keep general utility links separate from the schedule apps
+- lower-use direct IVC, dev-template, and quick-access links were removed from the first-level public hub
 - Perplexity branding/footer references were removed
 - the Phenobarbital for AWS card now points to `sud-education-hub/alcohol-benzodiazepines/phenobarbital-aws.html`
 
@@ -30,8 +31,9 @@ This page is one of the key public routing layers for the new destination-repo s
 Destination targets now wired into the pushed dashboard include:
 - `sud-education-hub`
 - `clinical-dashboards`
-- `IVC-Suite`
 - `psychometrics-hub`
+
+`IVC-Suite` remains available through the JFK clinical dashboard rather than as a first-level hub card.
 
 ## 2026-05-15 Consolidation Addendum
 - The dashboard `index.html` routing update has now been committed and pushed in the intended repo sequence.
@@ -67,3 +69,8 @@ An authenticated GitHub API probe showed the current plan does not support GitHu
 - Added a first `Schedules` section with `JFK Psych Schedule`, `JFK Med Staff Schedule`, and `Psych Scheduler Command Center`.
 - Removed the large hero copy, hero destination buttons, and top-bar section navigation to reduce the height of the dashboard header.
 - Removed duplicate schedule cards from the `Non-clinical` section while keeping general non-clinical utilities there.
+
+## 2026-06-04 Hub Simplification Update
+- Removed the direct `IVC Suite` card from `Clinical Tools`; the IVC tools remain reachable through `JFK Clinical Dashboard`.
+- Removed the `Dev & Templates` section.
+- Removed the `Quick Access` section.

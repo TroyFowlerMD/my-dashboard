@@ -45,3 +45,9 @@ Context: Dr. Fowler uses the schedule apps frequently and wanted them visible be
 Decision: Keep a first-page `Schedules` section for `JFK Psych Schedule`, `JFK Med Staff Schedule`, and the experimental `Psych Scheduler Command Center`.
 Rationale: The main hub should prioritize the highest-frequency workflow before broader clinical, education, journal, and utility destinations.
 Consequences: Future schedule-related destination cards should be reviewed for placement in `Schedules` before adding them to `Non-clinical`.
+
+### 2026-06-04 - Keep Lower-Use Utility Links Off The Main Hub
+Context: Dr. Fowler rarely uses the direct `IVC Suite` route and can access it through the `JFK Clinical Dashboard`; he also no longer needs `Dev & Templates` or `Quick Access` on the public hub.
+Decision: Remove those direct sections and links from the main dashboard.
+Rationale: The hub should stay focused on destinations Dr. Fowler actually uses from the first-level page.
+Consequences: Future hub additions should avoid restoring direct IVC, dev-template, or quick-access link clusters unless Dr. Fowler explicitly asks for them.

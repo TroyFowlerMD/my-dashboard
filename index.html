@@ -92,12 +92,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
 .badge-plex{background:rgba(155,89,182,0.12);color:#9B59B6;border:1px solid rgba(155,89,182,0.3)}
 .badge-local{background:rgba(255,217,61,0.1);color:#e6c235;border:1px solid rgba(255,217,61,0.25)}
 
-/* quick links */
-.quick-links{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:1.75rem}
-.ql{display:inline-flex;align-items:center;gap:0.35rem;padding:0.38rem 0.75rem;background:var(--surface);border:1px solid var(--border);border-radius:7px;text-decoration:none;font-size:0.75rem;font-weight:500;color:var(--text-muted);transition:all var(--tr)}
-.ql:hover{color:var(--text);border-color:var(--border-hover);background:var(--surface-2)}
-.ql svg{width:13px;height:13px}
-
 /* footer */
 .footer{text-align:center;padding:1.5rem 1rem 0.75rem;font-size:0.68rem;color:var(--text-faint)}
 .footer a{color:var(--text-faint);text-decoration:none}
@@ -267,14 +261,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
           <div class="card-url">troyfowlermd.github.io/clinical-dashboards/asam-classic/dashboard.html</div>
         </div>
       </a>
-      <a class="card" data-c="violet" href="https://troyfowlermd.github.io/IVC-Suite/" target="_blank" rel="noopener">
-        <div class="card-icon">⚖️</div>
-        <div class="card-body">
-          <div class="card-title">IVC Suite</div>
-          <div class="card-desc">Checklist, petition builder, and educational reference for IVCs</div>
-          <div class="card-url">troyfowlermd.github.io/IVC-Suite</div>
-        </div>
-      </a>
       <a class="card" data-c="blue" href="https://troyfowlermd.github.io/psychometrics-hub/" target="_blank" rel="noopener">
         <div class="card-icon">📊</div>
         <div class="card-body">
@@ -292,42 +278,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
         </div>
       </a>
     </div>
-  </div>
-
-  <!-- Dev / Templates -->
-  <div class="section">
-    <div class="section-label">Dev &amp; Templates</div>
-    <div class="grid">
-      <a class="card" data-c="amber" href="https://troyfowlermd.github.io/SUD-Website-Template/" target="_blank" rel="noopener">
-        <div class="card-icon">🧩</div>
-        <div class="card-body">
-          <div class="card-title">SUD Website Template</div>
-          <div class="card-desc">Reusable scaffold for new SUD education dashboards</div>
-          <div class="card-url">troyfowlermd.github.io/SUD-Website-Template</div>
-        </div>
-      </a>
-    </div>
-  </div>
-
-  <!-- Quick Access -->
-  <div class="section-label">Quick Access</div>
-  <div class="quick-links">
-    <a class="ql" href="https://github.com/TroyFowlerMD" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-      GitHub
-    </a>
-    <a class="ql" href="https://troyfowlermd.github.io/sud-patient-education/" target="_blank" rel="noopener">📖 Pt Education</a>
-    <a class="ql" href="https://troyfowlermd.github.io/sud-patient-education/" target="_blank" rel="noopener">💉 MOUD Guide</a>
-    <a class="ql" href="https://troyfowlermd.github.io/sud-education-hub/opioids/" target="_blank" rel="noopener">💊 OUD</a>
-    <a class="ql" href="https://troyfowlermd.github.io/sud-education-hub/alcohol-benzodiazepines/" target="_blank" rel="noopener">🍺 AUD/BZD</a>
-    <a class="ql" href="https://troyfowlermd.github.io/sud-education-hub/stimulants/" target="_blank" rel="noopener">⚡ StimUD</a>
-    <a class="ql" href="https://troyfowlermd.github.io/sud-education-hub/cannabis/" target="_blank" rel="noopener">🌿 CUD</a>
-    <a class="ql" href="https://troyfowlermd.github.io/sud-education-hub/perinatal/" target="_blank" rel="noopener">🤰 Perinatal</a>
-    <a class="ql" href="https://troyfowlermd.github.io/IVC-Suite/petition-builder/" target="_blank" rel="noopener">📝 IVC Petition Builder</a>
-    <a class="ql" href="https://troyfowlermd.github.io/IVC-Suite/basics/" target="_blank" rel="noopener">📘 IVC Basics</a>
-    <a class="ql" href="https://troyfowlermd.github.io/IVC-Suite/workflow/" target="_blank" rel="noopener">✅ IVC Checklist</a>
-    <a class="ql" href="https://troyfowlermd.github.io/IVC-Suite/petition-helper/" target="_blank" rel="noopener">✍️ IVC Petition Helper</a>
-    <a class="ql" href="https://registry.cocm-camasca.org" target="_blank" rel="noopener">🧒 CoCM Registry</a>
   </div>
 
   <!-- Non-clinical -->
