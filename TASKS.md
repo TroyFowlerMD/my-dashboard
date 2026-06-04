@@ -15,6 +15,7 @@
 - [ ] Discuss where cross-portfolio operating docs should live: this repo, a separate operations repo, or excluded.
 
 ## Completed (last 30 days)
+- [x] Added a Clinical Tools card for Clinical Alcohol Calculators.
 - [x] Removed the low-use direct IVC Suite card, Dev & Templates section, and Quick Access section from the public hub.
 - [x] Moved frequent schedule apps into a first-page `Schedules` section and simplified the dashboard top bar.
 - [x] Verified the user-facing card organization after separating schedules from non-clinical utilities.
