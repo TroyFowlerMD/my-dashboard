@@ -8,6 +8,7 @@
 
 ## Active Tasks
 - [~] Keep `my-dashboard` as the public routing layer for the consolidated TroyMD portfolio.
+- [~] Maintain `travel-planning.html` as the central index of all links related to the travel-planning project. New URLs (PRs, docs, lodging research, transit references, scheduled task IDs) get added here, not scattered.
 
 ## Upcoming
 - [ ] Manually retest public dashboard links after each future repo-routing change.
@@ -15,6 +16,8 @@
 - [ ] Discuss where cross-portfolio operating docs should live: this repo, a separate operations repo, or excluded.
 
 ## Completed (last 30 days)
+- [x] Added top-level Travel section with Travel Planning Hub and live fare dashboard cards.
+- [x] Created travel-planning.html — central project hub with live surfaces, source, itineraries, scheduled monitors, lodging research, and reference links.
 - [x] Added a Clinical Tools card for Clinical Alcohol Calculators.
 - [x] Removed the low-use direct IVC Suite card, Dev & Templates section, and Quick Access section from the public hub.
 - [x] Moved frequent schedule apps into a first-page `Schedules` section and simplified the dashboard top bar.

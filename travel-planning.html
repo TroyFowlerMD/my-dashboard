@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Planning · TroyMD Hub</title>
+<style>
+:root, [data-theme="dark"] {
+  --bg: #0f1117;
+  --surface: #1a1d27;
+  --surface-2: #232738;
+  --surface-3: #2a2f42;
+  --border: #2d3248;
+  --border-hover: #3d4260;
+  --text: #e4e4e7;
+  --text-muted: #9ca3af;
+  --text-faint: #6b7280;
+  --accent: #4ECDC4;
+  --accent-bg: rgba(78,205,196,0.08);
+  --shadow: 0 2px 12px rgba(0,0,0,0.3);
+  --radius: 8px;
+  --tr: 200ms cubic-bezier(0.4,0,0.2,1);
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+[data-theme="light"] {
+  --bg: #f3f4f8;
+  --surface: #ffffff;
+  --surface-2: #f0f1f5;
+  --surface-3: #e8e9f0;
+  --border: #d4d7e0;
+  --border-hover: #b0b5c4;
+  --text: #1a1d27;
+  --text-muted: #5a6070;
+  --text-faint: #8a90a0;
+  --accent: #2ba89e;
+  --accent-bg: rgba(43,168,158,0.08);
+  --shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;font-size:100%}
+html[data-font-size="small"]{font-size:87.5%}
+html[data-font-size="large"]{font-size:125%}
+html,body{width:100%;max-width:100%;overflow-x:hidden}
+body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100dvh;transition:background var(--tr),color var(--tr)}
+
+.topbar{position:sticky;top:0;z-index:100;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0.55rem 1.25rem}
+.topbar-title{font-weight:700;font-size:0.95rem;color:var(--text);display:flex;align-items:center;gap:0.45rem;min-width:0}
+.topbar-title svg{width:20px;height:20px;color:var(--accent)}
+.topbar-title a{color:inherit;text-decoration:none}
+.topbar-actions{display:flex;align-items:center;gap:0.45rem}
+.font-controls{display:flex;align-items:center;gap:0.2rem;padding:0.15rem;border:1px solid var(--border);border-radius:8px;background:var(--surface-2)}
+.font-btn{min-width:32px;height:30px;display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:6px;background:transparent;color:var(--text-muted);font-weight:800;font-size:0.74rem;cursor:pointer;transition:all var(--tr)}
+.font-btn:hover,.font-btn.active{background:var(--surface-3);color:var(--text)}
+.theme-btn{width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:7px;cursor:pointer;color:var(--text-muted);background:var(--surface-2);border:1px solid var(--border);transition:all var(--tr)}
+.theme-btn:hover{color:var(--text);border-color:var(--border-hover)}
+
+.container{max-width:1100px;margin:0 auto;padding:1.5rem 1.25rem 3rem}
+
+.crumbs{font-size:0.72rem;color:var(--text-muted);margin-bottom:0.9rem}
+.crumbs a{color:var(--accent);text-decoration:none}
+.crumbs a:hover{text-decoration:underline}
+
+.hero{margin-bottom:1.5rem}
+.hero h1{font-size:1.35rem;font-weight:700;margin-bottom:0.35rem}
+.hero p{font-size:0.82rem;color:var(--text-muted);line-height:1.5;max-width:780px}
+
+.section{margin-bottom:1.75rem}
+.section-label{font-size:0.86rem;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--text);margin-bottom:0.7rem;padding-left:0.1rem}
+[data-theme="dark"] .section-label{color:#c7cedc}
+[data-theme="light"] .section-label{color:#343948}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:0.5rem}
+
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:0.75rem 0.9rem;text-decoration:none;color:var(--text);display:flex;align-items:flex-start;gap:0.65rem;transition:all var(--tr)}
+.card:hover{border-color:var(--border-hover);box-shadow:var(--shadow);transform:translateY(-1px)}
+.card-icon{width:32px;height:32px;min-width:32px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:700}
+.card-body{flex:1;min-width:0}
+.card-title{font-size:0.82rem;font-weight:600;line-height:1.3;margin-bottom:0.15rem}
+.card-desc{font-size:0.71rem;color:var(--text-muted);line-height:1.4}
+.card-url{font-size:0.63rem;color:var(--text-faint);margin-top:0.25rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
+
+.card[data-c="teal"]   .card-icon{background:rgba(78,205,196,0.12);color:#4ECDC4}
+.card[data-c="coral"]  .card-icon{background:rgba(255,107,107,0.12);color:#FF6B6B}
+.card[data-c="amber"]  .card-icon{background:rgba(255,217,61,0.12);color:#e6c235}
+.card[data-c="violet"] .card-icon{background:rgba(155,89,182,0.12);color:#9B59B6}
+.card[data-c="blue"]   .card-icon{background:rgba(52,152,219,0.12);color:#3498DB}
+.card[data-c="green"]  .card-icon{background:rgba(107,203,119,0.12);color:#6BCB77}
+.card[data-c="pink"]   .card-icon{background:rgba(232,67,147,0.12);color:#E84393}
+.card[data-c="gold"]   .card-icon{background:rgba(200,155,60,0.12);color:#c89b3c}
+
+.badge{display:inline-flex;align-items:center;gap:0.3rem;font-size:0.62rem;font-weight:600;padding:0.15rem 0.45rem;border-radius:4px;margin-top:0.3rem}
+.badge-live{background:rgba(107,203,119,0.12);color:#6BCB77;border:1px solid rgba(107,203,119,0.3)}
+.badge-api{background:rgba(52,152,219,0.12);color:#3498DB;border:1px solid rgba(52,152,219,0.3)}
+.badge-task{background:rgba(155,89,182,0.12);color:#9B59B6;border:1px solid rgba(155,89,182,0.3)}
+.badge-todo{background:rgba(255,217,61,0.12);color:#e6c235;border:1px solid rgba(255,217,61,0.3)}
+
+.footer{text-align:center;padding:1.5rem 1rem 0.75rem;font-size:0.68rem;color:var(--text-faint)}
+.footer a{color:var(--text-faint);text-decoration:none}
+.footer a:hover{color:var(--text-muted)}
+
+@media(max-width:600px){
+  .topbar{display:grid;grid-template-columns:auto auto;align-items:start;padding:0.45rem 0.75rem;gap:0.5rem}
+  .topbar-title{min-width:0}
+  .topbar-actions{justify-self:end;min-width:0;margin-left:0;gap:0.3rem}
+  .container{padding:1rem 0.75rem 2rem}
+  .grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-title">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+    <a href="./index.html">TroyMD Hub</a> · Travel Planning
+  </div>
+  <div class="topbar-actions">
+    <div class="font-controls" aria-label="Text size">
+      <button class="font-btn" type="button" data-font-btn="small" onclick="setFontSize('small')" aria-label="Decrease text size">A-</button>
+      <button class="font-btn" type="button" data-font-btn="normal" onclick="setFontSize('normal')" aria-label="Reset text size">A</button>
+      <button class="font-btn" type="button" data-font-btn="large" onclick="setFontSize('large')" aria-label="Increase text size">A+</button>
+    </div>
+    <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+      <svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
+    </button>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="crumbs"><a href="./index.html">← TroyMD Hub</a></div>
+
+  <div class="hero">
+    <h1>Travel Planning</h1>
+    <p>Automated flight-fare tracking for upcoming Seahawks-itinerary and family trips out of AVL. Cloudflare Worker + D1 captures fares daily at 7 AM ET via SerpAPI; Next.js dashboard renders live data; redundant Perplexity tasks deliver alerts.</p>
+  </div>
+
+  <!-- Live surfaces -->
+  <div class="section">
+    <div class="section-label">Live surfaces</div>
+    <div class="grid">
+      <a class="card" data-c="teal" href="https://travel-planning-web.pages.dev" target="_blank" rel="noopener">
+        <div class="card-icon">📊</div>
+        <div class="card-body">
+          <div class="card-title">Dashboard (production)</div>
+          <div class="card-desc">Next.js on Cloudflare Pages — fetches live fares from the worker, renders active routes, alerts, and per-route trend lines</div>
+          <div class="card-url">travel-planning-web.pages.dev</div>
+          <span class="badge badge-live">LIVE</span>
+        </div>
+      </a>
+      <a class="card" data-c="blue" href="https://travel-planning-worker.troyfowlermd.workers.dev/api/fare-snapshots" target="_blank" rel="noopener">
+        <div class="card-icon">{ }</div>
+        <div class="card-body">
+          <div class="card-title">Fare snapshots API</div>
+          <div class="card-desc">Raw JSON of every captured fare snapshot — origin, destination, price, airline, capturedAt, booking URL</div>
+          <div class="card-url">…workers.dev/api/fare-snapshots</div>
+          <span class="badge badge-api">JSON</span>
+        </div>
+      </a>
+      <a class="card" data-c="violet" href="https://travel-planning-worker.troyfowlermd.workers.dev/" target="_blank" rel="noopener">
+        <div class="card-icon">⚡</div>
+        <div class="card-body">
+          <div class="card-title">Worker root</div>
+          <div class="card-desc">Cloudflare Worker base — health check and route index. POST /api/refresh forces an immediate capture.</div>
+          <div class="card-url">travel-planning-worker.troyfowlermd.workers.dev</div>
+          <span class="badge badge-api">API</span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Source -->
+  <div class="section">
+    <div class="section-label">Source &amp; deploys</div>
+    <div class="grid">
+      <a class="card" data-c="green" href="https://github.com/TroyFowlerMD/travel-planning" target="_blank" rel="noopener">
+        <div class="card-icon">⎇</div>
+        <div class="card-body">
+          <div class="card-title">GitHub repo</div>
+          <div class="card-desc">TroyFowlerMD/travel-planning — monorepo with apps/worker (Cloudflare) and apps/web (Next.js)</div>
+          <div class="card-url">github.com/TroyFowlerMD/travel-planning</div>
+        </div>
+      </a>
+      <a class="card" data-c="amber" href="https://github.com/TroyFowlerMD/travel-planning/actions" target="_blank" rel="noopener">
+        <div class="card-icon">▶</div>
+        <div class="card-body">
+          <div class="card-title">GitHub Actions</div>
+          <div class="card-desc">Deploy workflows for worker and web — runs on push to main</div>
+          <div class="card-url">github.com/TroyFowlerMD/travel-planning/actions</div>
+        </div>
+      </a>
+      <a class="card" data-c="coral" href="https://github.com/TroyFowlerMD/travel-planning/pulls?q=is%3Apr" target="_blank" rel="noopener">
+        <div class="card-icon">PR</div>
+        <div class="card-body">
+          <div class="card-title">Pull requests</div>
+          <div class="card-desc">All PRs (open + closed). Recent: #4 Seahawks routes, #5 dashboard ↔ worker, #6 fault-tolerant refresh</div>
+          <div class="card-url">github.com/TroyFowlerMD/travel-planning/pulls</div>
+        </div>
+      </a>
+      <a class="card" data-c="blue" href="https://dash.cloudflare.com" target="_blank" rel="noopener">
+        <div class="card-icon">☁</div>
+        <div class="card-body">
+          <div class="card-title">Cloudflare dashboard</div>
+          <div class="card-desc">Workers · Pages · D1 · cron triggers · email routing (parked)</div>
+          <div class="card-url">dash.cloudflare.com</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Tracked itineraries -->
+  <div class="section">
+    <div class="section-label">Tracked itineraries</div>
+    <div class="grid">
+      <div class="card" data-c="teal">
+        <div class="card-icon">🏈</div>
+        <div class="card-body">
+          <div class="card-title">AVL → DCA · Commanders</div>
+          <div class="card-desc">Sep 25 → Sep 28, 2026 · baseline $450</div>
+        </div>
+      </div>
+      <div class="card" data-c="blue">
+        <div class="card-icon">🏈</div>
+        <div class="card-body">
+          <div class="card-title">AVL → SEA · Seahawks home</div>
+          <div class="card-desc">Dec 5 → Dec 9, 2026 · baseline $700</div>
+        </div>
+      </div>
+      <div class="card" data-c="green">
+        <div class="card-icon">🏈</div>
+        <div class="card-body">
+          <div class="card-title">AVL → PHL · Eagles</div>
+          <div class="card-desc">Dec 18 → Dec 21, 2026 · baseline $450</div>
+        </div>
+      </div>
+      <div class="card" data-c="amber">
+        <div class="card-icon">🏈</div>
+        <div class="card-body">
+          <div class="card-title">AVL → CLT · Panthers</div>
+          <div class="card-desc">Jan 1 → Jan 4, 2027 · baseline $300 · 95-mi drive option</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scheduled monitors -->
+  <div class="section">
+    <div class="section-label">Scheduled monitors</div>
+    <div class="grid">
+      <div class="card" data-c="violet">
+        <div class="card-icon">📨</div>
+        <div class="card-body">
+          <div class="card-title">Daily fare digest</div>
+          <div class="card-desc">7:15 AM ET · in-app summary of today's captured fares vs baseline</div>
+          <span class="badge badge-task">PPLX TASK</span>
+        </div>
+      </div>
+      <div class="card" data-c="coral">
+        <div class="card-icon">📉</div>
+        <div class="card-body">
+          <div class="card-title">Price drop watcher</div>
+          <div class="card-desc">Every 6 hrs · push + in-app alert when any route ≥10% under 7-day avg AND ≥$15 drop</div>
+          <span class="badge badge-task">PPLX TASK</span>
+        </div>
+      </div>
+      <div class="card" data-c="blue">
+        <div class="card-icon">📈</div>
+        <div class="card-body">
+          <div class="card-title">Weekly trend report</div>
+          <div class="card-desc">Mon 8 AM ET · 7-day min/max/median/trajectory per route + capture-gap detection</div>
+          <span class="badge badge-task">PPLX TASK</span>
+        </div>
+      </div>
+      <div class="card" data-c="gold">
+        <div class="card-icon">⏳</div>
+        <div class="card-body">
+          <div class="card-title">Departure proximity</div>
+          <div class="card-desc">7:20 AM ET daily · alerts when any route crosses 90 / 60 / 30 / 14 day milestone</div>
+          <span class="badge badge-task">PPLX TASK</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ground & lodging research -->
+  <div class="section">
+    <div class="section-label">Ground &amp; lodging research</div>
+    <div class="grid">
+      <a class="card" data-c="pink" href="https://www.hilton.com/en/locations/united-states/" target="_blank" rel="noopener">
+        <div class="card-icon">🏨</div>
+        <div class="card-body">
+          <div class="card-title">Hilton portfolio (all brands)</div>
+          <div class="card-desc">Default lodging anchor — Hampton, Hilton Garden Inn, Embassy, Conrad, Waldorf, Tru, Home2, Tapestry, Curio</div>
+          <div class="card-url">hilton.com/en/locations/united-states</div>
+        </div>
+      </a>
+      <a class="card" data-c="teal" href="https://www.honors.hilton.com/" target="_blank" rel="noopener">
+        <div class="card-icon">★</div>
+        <div class="card-body">
+          <div class="card-title">Hilton Honors</div>
+          <div class="card-desc">Points balance, member-rate booking, award nights — preferred chain for all tracked itineraries</div>
+          <div class="card-url">honors.hilton.com</div>
+        </div>
+      </a>
+      <a class="card" data-c="amber" href="https://www.google.com/maps" target="_blank" rel="noopener">
+        <div class="card-icon">📍</div>
+        <div class="card-body">
+          <div class="card-title">Google Maps</div>
+          <div class="card-desc">Transit + walk times stadium ↔ hotel for car-free feasibility — see "Open questions" below for criteria</div>
+          <div class="card-url">google.com/maps</div>
+        </div>
+      </a>
+      <a class="card" data-c="green" href="https://www.wmata.com/" target="_blank" rel="noopener">
+        <div class="card-icon">🚇</div>
+        <div class="card-body">
+          <div class="card-title">DC · WMATA Metro</div>
+          <div class="card-desc">DCA-area transit — Blue Line to FedExField is the no-rental-car path for Commanders game</div>
+          <div class="card-url">wmata.com</div>
+        </div>
+      </a>
+      <a class="card" data-c="violet" href="https://www.soundtransit.org/" target="_blank" rel="noopener">
+        <div class="card-icon">🚆</div>
+        <div class="card-body">
+          <div class="card-title">SEA · Sound Transit Link</div>
+          <div class="card-desc">SEA airport → downtown / Lumen Field — direct light rail, ~40 min, no rental car needed</div>
+          <div class="card-url">soundtransit.org</div>
+        </div>
+      </a>
+      <a class="card" data-c="blue" href="https://www.septa.org/" target="_blank" rel="noopener">
+        <div class="card-icon">🚊</div>
+        <div class="card-body">
+          <div class="card-title">PHL · SEPTA</div>
+          <div class="card-desc">Airport Line + Broad Street Line to Lincoln Financial Field — eagles game car-free path</div>
+          <div class="card-url">septa.org</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Open questions -->
+  <div class="section">
+    <div class="section-label">Open questions &amp; follow-ups</div>
+    <div class="grid">
+      <div class="card" data-c="amber">
+        <div class="card-icon">?</div>
+        <div class="card-body">
+          <div class="card-title">No-rental-car feasibility</div>
+          <div class="card-desc">For each itinerary: airport → hotel → stadium via transit/rideshare. Score on cost, time, weather risk, and post-game egress.</div>
+          <span class="badge badge-todo">SCOPED</span>
+        </div>
+      </div>
+      <div class="card" data-c="pink">
+        <div class="card-icon">🏨</div>
+        <div class="card-body">
+          <div class="card-title">Best Hilton-brand hotels per trip</div>
+          <div class="card-desc">Walkable to stadium or 1-stop transit · Hilton Honors eligible · breakfast included where possible · prioritize Hampton / Hilton Garden Inn / Embassy</div>
+          <span class="badge badge-todo">SCOPED</span>
+        </div>
+      </div>
+      <div class="card" data-c="coral">
+        <div class="card-icon">⚠</div>
+        <div class="card-body">
+          <div class="card-title">AVL → PHL capture gap</div>
+          <div class="card-desc">SerpAPI currently returns "No priced flights" — likely inventory window. Re-check weekly until Dec inventory opens.</div>
+          <span class="badge badge-todo">MONITOR</span>
+        </div>
+      </div>
+      <div class="card" data-c="violet">
+        <div class="card-icon">📐</div>
+        <div class="card-body">
+          <div class="card-title">Baseline tuning</div>
+          <div class="card-desc">Target 2026-06-13 — replace placeholder baselines with 7-day median once data accumulates</div>
+          <span class="badge badge-todo">QUEUED</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reference -->
+  <div class="section">
+    <div class="section-label">Reference</div>
+    <div class="grid">
+      <a class="card" data-c="teal" href="https://serpapi.com/google-flights-api" target="_blank" rel="noopener">
+        <div class="card-icon">🔌</div>
+        <div class="card-body">
+          <div class="card-title">SerpAPI · Google Flights</div>
+          <div class="card-desc">Data source documentation for the fetchFareSnapshot worker function</div>
+          <div class="card-url">serpapi.com/google-flights-api</div>
+        </div>
+      </a>
+      <a class="card" data-c="blue" href="https://developers.cloudflare.com/d1/" target="_blank" rel="noopener">
+        <div class="card-icon">DB</div>
+        <div class="card-body">
+          <div class="card-title">Cloudflare D1 docs</div>
+          <div class="card-desc">SQLite-on-edge storage backing fare_snapshots</div>
+          <div class="card-url">developers.cloudflare.com/d1</div>
+        </div>
+      </a>
+      <a class="card" data-c="green" href="https://developers.cloudflare.com/workers/configuration/cron-triggers/" target="_blank" rel="noopener">
+        <div class="card-icon">⏰</div>
+        <div class="card-body">
+          <div class="card-title">Cron triggers (worker-native)</div>
+          <div class="card-desc">Worker-native cron at 0 11 * * * UTC = 7 AM ET — independent of Perplexity tasks layer</div>
+          <div class="card-url">developers.cloudflare.com/workers/cron</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <a href="./index.html">← Back to TroyMD Hub</a>
+</div>
+
+<script>
+const fontSizeKey='troymd-font-size';
+const themeKey='troymd-theme';
+
+function setFontSize(size){
+  const allowed=['small','normal','large'];
+  const next=allowed.includes(size)?size:'normal';
+  const h=document.documentElement;
+  if(next==='normal') h.removeAttribute('data-font-size');
+  else h.setAttribute('data-font-size',next);
+  localStorage.setItem(fontSizeKey,next);
+  document.querySelectorAll('[data-font-btn]').forEach(btn=>{
+    btn.classList.toggle('active',btn.getAttribute('data-font-btn')===next);
+  });
+}
+
+function setTheme(theme){
+  document.documentElement.setAttribute('data-theme',theme);
+  localStorage.setItem(themeKey,theme);
+  const icon=document.getElementById('themeIcon');
+  if(theme==='light'){
+    icon.innerHTML='<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+  } else {
+    icon.innerHTML='<path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>';
+  }
+}
+
+function toggleTheme(){
+  const cur=document.documentElement.getAttribute('data-theme')||'dark';
+  setTheme(cur==='dark'?'light':'dark');
+}
+
+(function init(){
+  const savedSize=localStorage.getItem(fontSizeKey)||'normal';
+  setFontSize(savedSize);
+  const savedTheme=localStorage.getItem(themeKey)||'dark';
+  setTheme(savedTheme);
+})();
+</script>
+
+</body>
+</html>
