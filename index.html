@@ -44,12 +44,12 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}
 body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100dvh;transition:background var(--tr),color var(--tr)}
 
 /* topbar */
-.topbar{position:sticky;top:0;z-index:100;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0.55rem 1.25rem}
+.topbar{position:sticky;top:0;z-index:100;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0.55rem 1.2rem}
 .topbar-title{font-weight:700;font-size:0.95rem;color:var(--text);display:flex;align-items:center;gap:0.45rem;min-width:0}
 .topbar-title svg{width:20px;height:20px;color:var(--accent)}
 .topbar-actions{display:flex;align-items:center;gap:0.45rem}
 .font-controls{display:flex;align-items:center;gap:0.2rem;padding:0.15rem;border:1px solid var(--border);border-radius:8px;background:var(--surface-2)}
-.font-btn{min-width:32px;height:30px;display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:6px;background:transparent;color:var(--text-muted);font-weight:800;font-size:0.74rem;cursor:pointer;transition:all var(--tr)}
+.font-btn{min-width:32px;height:30px;display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:6px;background:transparent;color:var(--text-muted);font-weight:800;font-size:0.75rem;cursor:pointer;transition:all var(--tr)}
 .font-btn:hover,.font-btn.active{background:var(--surface-3);color:var(--text)}
 .theme-btn{width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:7px;cursor:pointer;color:var(--text-muted);background:var(--surface-2);border:1px solid var(--border);transition:all var(--tr)}
 .theme-btn:hover{color:var(--text);border-color:var(--border-hover)}
@@ -68,7 +68,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
 .grid-wide{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:0.5rem}
 
 /* card */
-.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:0.75rem 0.9rem;text-decoration:none;color:var(--text);display:flex;align-items:flex-start;gap:0.65rem;transition:all var(--tr)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:0.75rem 0.9rem;text-decoration:none;color:var(--text);display:flex;align-items:flex-start;gap:0.6rem;transition:all var(--tr)}
 .card:hover{border-color:var(--border-hover);box-shadow:var(--shadow);transform:translateY(-1px)}
 .card-icon{width:32px;height:32px;min-width:32px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:1rem}
 .card-body{flex:1;min-width:0}
@@ -118,7 +118,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
 
 <div class="topbar">
   <div class="topbar-title">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
     TroyMD Hub
   </div>
   <div class="topbar-actions">
@@ -146,12 +146,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
           <div class="card-url">troyfowlermd.github.io/non-clinical/psych-scheduler.html</div>
         </div>
       </a>
-      <a class="card" data-c="green" href="https://troyfowlermd.github.io/non-clinical/jfk-med-staff-schedule-experimental-v2.html" target="_blank" rel="noopener">
+      <a class="card" data-c="green" href="https://non-clinical-lac.vercel.app/" target="_blank" rel="noopener">
         <div class="card-icon">MED</div>
         <div class="card-body">
           <div class="card-title">JFK Med Staff Schedule</div>
           <div class="card-desc">Daily and monthly JFK med staff schedule with directory, texting, and upload tools</div>
-          <div class="card-url">troyfowlermd.github.io/non-clinical/jfk-med-staff-schedule-experimental-v2.html</div>
+          <div class="card-url">non-clinical-lac.vercel.app</div>
         </div>
       </a>
       <a class="card" data-c="coral" href="https://troyfowlermd.github.io/non-clinical/psych-scheduler-experimental.html" target="_blank" rel="noopener">
