@@ -4,6 +4,7 @@
 - GitHub is the source of truth for this project: TroyFowlerMD/my-dashboard.
 - Notion is no longer the operating source of truth for this repo. Historical Notion content has been migrated into docs/ and the repo memory files.
 - Durable documentation lives in docs/, AGENTS.md, TASKS.md, WORKLOG.md, and DECISIONS.md.
+- For schedule-app routing work, the canonical route registry lives in `C:\Users\troyf\Documents\Codex\Projects\non-clinical\docs\schedule-app-canonical-routes.md`. Check that file before editing schedule cards or schedule-host wording here.
 - Work in this repo in place. Do not move folders, clone over this repo, or rewrite history unless Dr. Fowler explicitly asks.
 - Default branch: master.
 - Live/public target: https://troyfowlermd.github.io/my-dashboard/.
@@ -26,8 +27,9 @@
 2. If there are staged, modified, or untracked files, stop and report exactly what is present before editing. Summarize whether the changes appear intentional, stale, unexpected, or in need of user review. Treat those changes as user or prior-Codex work; do not discard, overwrite, pull over, or auto-clean them without explicit approval.
 3. If the working tree is clean and network access is available, run git pull --ff-only before starting work. Do not merge, rebase, or force update unless explicitly approved.
 4. Read AGENTS.md, TASKS.md, WORKLOG.md, DECISIONS.md, and any task-relevant files in docs/.
-5. Report the current branch, repo status, active task, blockers, and proposed next action.
-6. Wait for approval before editing unless the user has already given explicit implementation approval.
+5. For any schedule-app card, route, host, or repo-move work, also read `C:\Users\troyf\Documents\Codex\Projects\non-clinical\docs\schedule-app-canonical-routes.md` before editing.
+6. Report the current branch, repo status, active task, blockers, and proposed next action.
+7. Wait for approval before editing unless the user has already given explicit implementation approval.
 
 ## Required Shutdown Routine
 1. Update WORKLOG.md with what changed, what remains, and any blockers.
@@ -86,8 +88,11 @@ Append entries to WORKLOG.md using this shape:
 - Shareable destination pages should stand alone and should not link back to a private/main hub unless explicitly intended.
 - Prefer simplified public routing cards over legacy split cards.
 - Public pages should not mention repo migrations or internal consolidation history.
+- Schedule-app cards here should mirror the canonical registry in `non-clinical/docs/schedule-app-canonical-routes.md`.
+- When a schedule-app URL or repo location changes, update this dashboard only in the same change set that updates the canonical registry and any legacy-forwarder behavior.
 
 ## Verification Guidance
 - For link changes, verify target URLs and whether they should open in a new tab.
+- For schedule-app link changes, verify the dashboard card matches the canonical schedule-route registry before publishing.
 - For visible UI changes, inspect desktop and mobile layouts when feasible.
 - If tests cannot run, record the reason in WORKLOG.md.

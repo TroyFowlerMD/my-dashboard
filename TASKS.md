@@ -9,13 +9,16 @@
 ## Active Tasks
 - [~] Keep `my-dashboard` as the public routing layer for the consolidated TroyMD portfolio.
 - [~] Maintain `travel-planning.html` as the central index of all links related to the travel-planning project. New URLs (PRs, docs, lodging research, transit references, scheduled task IDs) get added here, not scattered.
+- [~] Keep schedule-app cards aligned with `non-clinical/docs/schedule-app-canonical-routes.md`.
 
 ## Upcoming
 - [ ] Manually retest public dashboard links after each future repo-routing change.
+- [ ] If a schedule-app hostname or repo location changes later, update the dashboard in the same publish that updates the canonical schedule-route registry and legacy-forwarder behavior.
 - [ ] Decide whether GitHub profile pinning or additional About-panel polish is needed.
 - [ ] Discuss where cross-portfolio operating docs should live: this repo, a separate operations repo, or excluded.
 
 ## Completed (last 30 days)
+- [x] Confirmed the `JFK Med Staff Schedule` dashboard card now uses the Vercel URL and documented the canonical schedule-route registry dependency for future schedule card edits.
 - [x] Added top-level Travel section with Travel Planning Hub and live fare dashboard cards.
 - [x] Created travel-planning.html — central project hub with live surfaces, source, itineraries, scheduled monitors, lodging research, and reference links.
 - [x] Added a Clinical Tools card for Clinical Alcohol Calculators.

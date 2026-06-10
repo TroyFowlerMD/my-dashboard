@@ -4,6 +4,12 @@ This file records durable architectural, workflow, safety, and publishing decisi
 
 ---
 
+### 2026-06-09 - Follow The Canonical Schedule Route Registry For Dashboard Schedule Cards
+Context: The schedule apps now span GitHub Pages and Vercel, and the live dashboard already depends on `non-clinical` for those destinations.
+Decision: Treat `C:\Users\troyf\Documents\Codex\Projects\non-clinical\docs\schedule-app-canonical-routes.md` as the authoritative source for schedule-app destinations. Update dashboard schedule cards only in the same change set that updates the registry and any legacy-forwarder behavior.
+Rationale: This keeps the dashboard from drifting away from the actual current schedule-app URLs or accidentally reviving retired paths.
+Consequences: Future schedule-card edits in this repo should start with a registry check and should not invent independent schedule-route truth here.
+
 ### 2026-05-15 - Treat my-dashboard As The Active Public Hub
 Context: `troyfowlermd.github.io` exists as the root-site repo, but the active dashboard lives elsewhere.
 Decision: Use `my-dashboard` as the real public routing hub for maintained TroyMD portfolio links.

@@ -19,6 +19,8 @@ A portfolio-consolidation polish pass has now been committed and pushed:
 
 GitHub now matches the intended routing update for this dashboard repo.
 
+Schedule-app routing truth now lives in `TroyFowlerMD/non-clinical` under `docs/schedule-app-canonical-routes.md`. This dashboard should mirror that registry for `JFK Psych Schedule`, `JFK Med Staff Schedule`, and `Psych Scheduler Command Center` instead of maintaining an independent URL list.
+
 ## Architecture Map
 - Repo: `TroyFowlerMD/my-dashboard`
 - Live URL: `https://troyfowlermd.github.io/my-dashboard`

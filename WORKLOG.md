@@ -4,6 +4,12 @@ This file records completed Codex work sessions for TroyMD Personal Dashboard. A
 
 ---
 
+### 2026-06-09 - Codex desktop - Schedule route registry guardrails
+- Completed: Fast-forward pulled `origin/master` and confirmed the live `JFK Med Staff Schedule` card already points to `https://non-clinical-lac.vercel.app/`, so `index.html` did not need a new code change for this cleanup.
+- Completed: Updated repo instructions and task state so future schedule-card edits must check `non-clinical/docs/schedule-app-canonical-routes.md` before changing URLs or route wording here.
+- In progress: Future manual dashboard-link retests remain open after later routing changes.
+- Blockers/notes: Public verification should confirm the live dashboard card still points at the Vercel med-staff app after the paired `non-clinical` publish.
+
 ### 2026-06-04 - Codex desktop - Clinical alcohol calculators hub card
 - Completed: Fast-forward pulled `origin/master`, then added a `Clinical Alcohol Calculators` card to the `Clinical Tools` section.
 - Completed: Pointed the card to `https://troyfowlermd.github.io/clinical-dashboards/alcohol-calculators/` with `target="_blank"` and `rel="noopener"`.
