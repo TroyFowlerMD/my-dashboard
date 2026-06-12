@@ -4,6 +4,12 @@ This file records completed Codex work sessions for TroyMD Personal Dashboard. A
 
 ---
 
+### 2026-06-12 - Codex desktop - Journal Club Hub Vercel cutover
+- Completed: Repointed the public `Journal Club Hub` card in `index.html` from the legacy GitHub Pages URL to `https://journal-club-hub.vercel.app/`.
+- Completed: Kept destination-link behavior as a new-tab external route with `target="_blank"` and `rel="noopener"`.
+- In progress: Future manual dashboard-link retests remain open after later routing changes.
+- Blockers/notes: Public verification should confirm the live dashboard card and the legacy Journal Club Hub redirect after GitHub Pages propagation.
+
 ### 2026-06-09 - Codex desktop - Schedule route registry guardrails
 - Completed: Fast-forward pulled `origin/master` and confirmed the live `JFK Med Staff Schedule` card already points to `https://non-clinical-lac.vercel.app/`, so `index.html` did not need a new code change for this cleanup.
 - Completed: Updated repo instructions and task state so future schedule-card edits must check `non-clinical/docs/schedule-app-canonical-routes.md` before changing URLs or route wording here.

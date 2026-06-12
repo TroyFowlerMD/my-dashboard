@@ -18,6 +18,7 @@
 - [ ] Discuss where cross-portfolio operating docs should live: this repo, a separate operations repo, or excluded.
 
 ## Completed (last 30 days)
+- [x] Repointed the `Journal Club Hub` card to the canonical Vercel host.
 - [x] Confirmed the `JFK Med Staff Schedule` dashboard card now uses the Vercel URL and documented the canonical schedule-route registry dependency for future schedule card edits.
 - [x] Added top-level Travel section with Travel Planning Hub and live fare dashboard cards.
 - [x] Created travel-planning.html — central project hub with live surfaces, source, itineraries, scheduled monitors, lodging research, and reference links.
